@@ -1,4 +1,4 @@
-import pygame, sys
+import pygame
 from pygame.locals import *
 import random, time,datetime
 pygame.init()
@@ -141,8 +141,8 @@ inc_speed= pygame.USEREVENT + 1
 pygame.time.set_timer(inc_speed, 3000)
 
 game_start_time = time.time()
-
-while True:
+running = True
+while running:
     #show everything on the screen
     screen.blit(background, (0, 0))
     scores = font_small.render(f"Score: {score}", True, (0, 0, 0))
@@ -161,8 +161,7 @@ while True:
             enemy_speed += 0.5
         #stop running the game if the quit button clicked
         if event.type == QUIT:
-            pygame.quit()
-            sys.exit()
+            running = False
     #make enemy and player move
     for entity in all_sprites:
         screen.blit(entity.image, entity.rect)
@@ -199,3 +198,4 @@ while True:
     pygame.display.update()
     #update tyme per second
     clock.tick(FPS)
+pygame.quit()
