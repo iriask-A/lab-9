@@ -1,6 +1,6 @@
 import pygame
 from pygame.locals import *
-import random, time,datetime
+import random, time
 pygame.init()
 
 FPS = 60
